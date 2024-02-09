@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-...your-integrity-hash..." />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navbar-brand.custom-navbar-brand {
+            margin-left: 10px;
+
+            font-size: 24px;
+            color: rgb(221, 137, 11);
+        }
+
+        .navbarNav {
+            align-content: center;
+        }
+
+        .navbar-nav.nav-link {
+            color: solid black;
+            /* Set the desired text color */
+        }
+
+        nav {
+            background-color: #b79b6e;
+            color: rgb(87, 25, 25);
+            font-size: 20px;
+        }
+
+        header {
+            background-color: #b28f56;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            width: 400px;
+            height: 400px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: left;
+            position: relative;
+            /* Added position relative */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-card .quick-add {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            width: 60px;
+            /* Decreased width of quick-add button */
+            height: 60px;
+            /* Decreased height of quick-add button */
+            font-size: 30px;
+            /* Decreased font size of cart icon */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .quick-add:hover,
+        .product-card .quick-add.clicked {
+            background-color: transparent;
+        }
+
+        .product-card .quick-add.clicked i {
+            color: red;
+        }
+
+        .product-card .quick-add i {
+            color: black;
+        }
+
+        .product-card {
+            position: relative;
+        }
+
+        .product-card .details {
+            position: absolute;
+            bottom: 0;
+            left: 8px;
+            width: 100%;
+
+            padding: 10px;
+            color: #111010;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-light bg-light"
+            style="background-color: #b79b6e; color: rgb(87, 25, 25); font-size: 20px;">
+            <a class="navbar-brand custom-navbar-brand" style="color: #cdaa0f;" href="index.html">Meral &amp; Co.</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="rings_card.html">Rings</a></li>
+                            <li><a class="dropdown-item" href="necklace_card.html">Necklace</a></li>
+                            <li><a class="dropdown-item" href="Bracelets.html">Bracelets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link" href="checkout.html"> <i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link" href="sign_up.html"><i class="fas fa-user"></i></a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+
+    <h1 style="text-align: center;">Necklaces</h1>
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-container">
+            <div class="product-card">
+                <img src="data:image/jpeg;base64,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" width="300px" height="300px" alt="Product Image">
+                <div class="details">
+                    <h6 id="productName" name="productName">Necklace 1</h6>
+                <p id="productPrice" name="productPrice">$10</p>
+               
+            <input type="hidden" name="productName" value="Necklace 1">
+            <input type="hidden" name="productPrice" value="10">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+                </div>
+
+                <button class="quick-add" onclick="toggleClickedState(this)">
+                    <i class="fa fa-cart-plus"></i>
+                </button>
+
+            </div>
+    </form>
+    <!-- Add more product cards here -->
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://i.etsystatic.com/23456886/r/il/7a7697/2825086269/il_570xN.2825086269_c8b9.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 2</h6>
+                <p id="productPrice" name="productPrice">$20</p>
+               
+            <input type="hidden" name="productName" value="Necklace 2">
+            <input type="hidden" name="productPrice" value="20">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </form>
+
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2022/12/First-pic-2.png" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 3</h6>
+                <p id="productPrice" name="productPrice">$30</p>
+               
+            <input type="hidden" name="productName" value="Necklace 3">
+            <input type="hidden" name="productPrice" value="30">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+
+
+    <form class="product-form">
+        <div class="product-card" action="products.php" method="post">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2022/12/First-pic-1-1.png" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 4</h6>
+                <p id="productPrice" name="productPrice">$40</p>
+
+               
+            <input type="hidden" name="productName" value="Necklace 4">
+            <input type="hidden" name="productPrice" value="40">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+
+    </form>
+
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2020/12/Baguette-Necklace-min.png" width="auto" height="auto" alt="Product Image">
+ 
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 5</h6>
+                <p id="productPrice" name="productPrice">$50</p>
+               
+            <input type="hidden" name="productName" value="Necklace 5">
+            <input type="hidden" name="productPrice" value="50">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2020/12/First-pic-.png" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 6</h6>
+                <p id="productPrice" name="productPrice">$60</p>
+               
+            <input type="hidden" name="productName" value="Necklace 6">
+            <input type="hidden" name="productPrice" value="60">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2022/12/First-pic-1.png" width="auto" height="auto" alt="Product Image">
+           
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 7</h6>
+                <p id="productPrice" name="productPrice">$70</p>
+               
+            <input type="hidden" name="productName" value="Necklace 7">
+            <input type="hidden" name="productPrice" value="70">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2020/12/Baguette-1.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6 id="productName" name="productName">Necklace 8</h6>
+                <p id="productPrice" name="productPrice">$80</p>
+               
+            <input type="hidden" name="productName" value="Necklace 8">
+            <input type="hidden" name="productPrice" value="80">
+            <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+    <form class="product-form" action="products.php" method="post">
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeWZ_E6v8WAC82Tr9AgHR-HF-b8CU9Sfejw&usqp=CAU" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+            <h6 id="productName" name="productName">Necklace 9</h6>
+            <p id="productPrice" name="productPrice">$90</p>
+           
+        <input type="hidden" name="productName" value="Necklace 9">
+        <input type="hidden" name="productPrice" value="90">
+        <input type="number" name="quantity" placeholder="Quantity" min="1" max="10">
+            <input type="email" name="email" placeholder="Email">
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+    </form>
+    <!-- Repeat the above product card div to create more cards -->
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <script>
+       function addToCart(button) {
+    // Get the product details
+    var product = button.parentNode.querySelector(".details");
+    var productName = product.querySelector("h6").textContent;
+    var productPrice = product.querySelector("p").textContent;
+
+    // Create an object to represent the product
+    var productObj = {
+        name: productName,
+        price: productPrice
+    };
+
+    // Send an AJAX request to add the product to the cart
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "add_to_cart.php", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Call the displayCart function to update the cart display
+            displayCart();
+        }
+    };
+
+    xhr.send(JSON.stringify(productObj));
+}
+
+
+        
+
+    </script>
+
+
+</body>
+
+</html>

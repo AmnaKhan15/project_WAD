@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+          integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+          crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          integrity="sha512-...your-integrity-hash..." />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .navbar-brand.custom-navbar-brand {
+            margin-left: 10px;
+
+            font-size: 24px;
+            color: rgb(221, 137, 11);
+        }
+
+        .navbarNav {
+            align-content: center;
+        }
+
+        .navbar-nav.nav-link {
+            color: solid black;
+            /* Set the desired text color */
+        }
+
+        nav {
+            background-color: #b79b6e;
+            color: rgb(87, 25, 25);
+            font-size: 20px;
+        }
+
+        header {
+            background-color: #b28f56;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .product-card {
+            width: 400px;
+            height: 400px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: left;
+            position: relative; /* Added position relative */
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .product-card .quick-add {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            width: 60px; /* Decreased width of quick-add button */
+            height: 60px; /* Decreased height of quick-add button */
+            font-size: 30px; /* Decreased font size of cart icon */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .product-card .quick-add:hover,
+        .product-card .quick-add.clicked {
+            background-color: transparent;
+        }
+        
+        .product-card .quick-add.clicked i {
+            color: red;
+        }
+        
+        .product-card .quick-add i {
+            color: black;
+        }
+       
+        .product-card {
+        position: relative;
+    }
+
+    .product-card .details {
+        position: absolute;
+        bottom: 0;
+        left: 8px;
+        width: 100%;
+
+        padding: 10px;
+        color: #111010;
+    }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+     <header>
+        <nav class="navbar navbar-expand-xl navbar-light bg-light"
+            style="background-color: #b79b6e; color: rgb(87, 25, 25); font-size: 20px;">
+            <a class="navbar-brand custom-navbar-brand" style="color: #cdaa0f;" href="index.html">Meral &amp; Co.</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="rings_card.html">Rings</a></li>
+                            <li><a class="dropdown-item" href="necklace_card.html">Necklace</a></li>
+                            <li><a class="dropdown-item" href="Bracelets.html">Bracelets</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link" href="checkout.html"> <i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    &nbsp;
+                    <li class="nav-item justify-content-end">
+                        <a class="nav-link" href="sign_up.html"><i class="fas fa-user"></i></a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+
+    <h1 style="text-align: center;">Rings</h1>
+    <div class="product-container">
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2021/10/DSC0045-1-400x400.jpg" width="300px" height="300px" alt="Product Image">
+            <div class="details">
+            <h6>Product Name</h6>
+            <p>$19.99</p>
+        </div>
+       
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        
+        </div>
+        <!-- Add more product cards here -->
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2021/02/DSC0037-1-400x400.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2021/10/DSC0040-400x400.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2020/12/DSC0031-1-400x400.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://queensmmxviii.com/wp-content/uploads/2020/12/DSC0036-400x400.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://d24mf1as2csgn7.cloudfront.net/product/400x400/24062023/35704_1-1209938879422.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://d24mf1as2csgn7.cloudfront.net/product/400x400/03062023/19900_2-887826753090.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://d24mf1as2csgn7.cloudfront.net/product/400x400/11022023/34815_2-475621974785.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://d24mf1as2csgn7.cloudfront.net/product/400x400/21062022/33987_2-1268225205050.jpg" width="auto" height="auto" alt="Product Image">
+            <div class="details">
+                <h6>Product Name</h6>
+                <p>$19.99</p>
+            </div>
+            <button class="quick-add" onclick="toggleClickedState(this)">
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </div>
+        <!-- Repeat the above product card div to create more cards -->
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+    <script>
+        function toggleClickedState(button) {
+            button.classList.toggle('clicked');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Cart</title>
+</head>
+<body>
+<h1>Cart</h1>
+<ul>
+<?php foreach ($cart as $productName => $quantity) : ?>
+<li>
+<a href="product.php?productName=<?php echo $productName; ?>"><?php echo $productName; ?></a>
+(Quantity: <?php echo $quantity; ?>)
+</li>
+<?php endforeach; ?>
+</ul>
+<a href="checkout.php">Checkout</a>
+</body>
+</html>
